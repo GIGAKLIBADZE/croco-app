@@ -1,0 +1,31 @@
+<div class="users-wrapper">
+  <h2>Users List</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.company }}</td>
+        <td>
+          <button class="posts-btn" [routerLink]="['/posts', user.id]">
+            პოსტები
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
