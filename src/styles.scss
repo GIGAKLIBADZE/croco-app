@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.layout-container {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+.main-content {
+  width: 50%;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    width: 80%;
+  }
+}
