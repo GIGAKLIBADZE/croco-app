@@ -1,0 +1,25 @@
+<div class="posts-wrapper">
+  @if (userId) {
+    <h2> მომხმარებელი {{ userId }}-ის პოსტები</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>სათაური</th>
+          <th>შინაარსი</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (post of posts; track post.id) {
+          <tr>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>ვერ მოიძებნა</p>
+  }
+</div>
