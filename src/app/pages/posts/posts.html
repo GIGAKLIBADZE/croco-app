@@ -1,25 +1,22 @@
-<div class="posts-wrapper">
-  @if (userId) {
-    <h2> მომხმარებელი {{ userId }}-ის პოსტები</h2>
+<div class="page">
+  <h2> მომხმარებლის {{ userId }}-ის პოსტები</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>სათაური</th>
-          <th>შინაარსი</th>
-        </tr>
-      </thead>
+  <div class="cards">
+    @for (post of posts; track post.id) {
+      <article class="card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.body }}</p>
+        <button class="btn outline" (click)="open(post)">დეტალურად</button>
+      </article>
+    }
+  </div>
 
-      <tbody>
-        @for (post of posts; track post.id) {
-          <tr>
-            <td>{{ post.title }}</td>
-            <td>{{ post.body }}</td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  } @else {
-    <p>ვერ მოიძებნა</p>
+  @if (selected) {
+    <div class="modal-backdrop" (click)="close()"></div>
+    <div class="modal">
+      <h3>{{ selected!.title }}</h3>
+      <p>{{ selected!.body }}</p>
+      <button class="btn" (click)="close()">დახურვა</button>
+    </div>
   }
 </div>

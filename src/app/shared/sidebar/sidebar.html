@@ -1,4 +1,11 @@
-<nav class="sidebar">
-  <button routerLink="/users">მომხმარებლები</button>
-  <button routerLink="/posts">პოსტები</button>
+<button class="menu-btn" (click)="toggleSidebar()">☰</button>
+
+@if (isOpen) {
+  <div class="sidebar-backdrop" (click)="toggleSidebar()"></div>
+}
+
+<nav class="sidebar" [class.open]="isOpen">
+  <button class="close-btn" (click)="toggleSidebar()">x</button>
+  <button routerLink="/users" (click)="toggleSidebar()">მომხმარებლები</button>
+  <button routerLink="/posts" (click)="toggleSidebar()">პოსტები</button>
 </nav>

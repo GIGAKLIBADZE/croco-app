@@ -1,5 +1,12 @@
 <div class="users-wrapper">
-  <h2>მომხმარებლები</h2>
+  <h2>მომხმარებლების სია</h2>
+
+  <input
+    type="text"
+    placeholder="ძებნა"
+    [(ngModel)]="query"
+    (input)="onSearch()"
+  />
 
   <table>
     <thead>
@@ -7,26 +14,30 @@
         <th>სახელი</th>
         <th>გვარი</th>
         <th>ტელეფონი</th>
-        <th>ელ-ფოსტა</th>
+        <th>მეილი</th>
         <th>კომპანია</th>
-        <th>მოქმედებები</th>
+        <th>მოქმედება</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.firstName }}</td>
-        <td>{{ user.lastName }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.company }}</td>
-        <td>
-        <button class="posts-btn" [routerLink]="['/posts', user.id]">
-          პოსტები
-        </button>
-
-        </td>
-      </tr>
+      @for (user of filteredUsers; track user.id) {
+        <tr>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.company.name }}</td>
+          <td>
+            <button
+              class="btn posts-btn"
+              [routerLink]="['/posts', user.id]"
+            >
+              პოსტები
+            </button>
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

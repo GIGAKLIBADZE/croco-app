@@ -15,3 +15,11 @@
     background: #1256a3;
   }
 }
+
+
+.btn {
+  padding: 6px 12px; border: 1px solid #0b6; background:#0b6; color:#fff;
+  transition: transform .15s ease, box-shadow .15s ease;
+  cursor: pointer; border-radius: 6px;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.12); }
