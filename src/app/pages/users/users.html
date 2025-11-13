@@ -16,7 +16,7 @@
         <th>ტელეფონი</th>
         <th>მეილი</th>
         <th>კომპანია</th>
-        <th>მოქმედება</th>
+        <th>პოსტები/დავალებები</th>
       </tr>
     </thead>
 
@@ -34,6 +34,9 @@
               [routerLink]="['/posts', user.id]"
             >
               პოსტები
+            </button>
+            <button routerLink="/todos/{{ user.id }}" class="todo-btn">
+              დავალებების სია
             </button>
           </td>
         </tr>
