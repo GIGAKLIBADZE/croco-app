@@ -1,0 +1,20 @@
+<div class="todo-wrapper">
+
+  <h2>{{ userId }} -ის Todo List</h2>
+  <div class="todo-list">
+
+    @for (t of todos; track t.id) {
+      <div class="todo-item" [class.completed]="t.completed">
+        
+        <span>{{ t.title }}</span>
+
+        <span class="status" [class.ok]="t.completed">
+          {{ t.completed ? "შესრულებულია" : "შეუსსრულებელია" }}
+        </span>
+
+      </div>
+    }
+
+  </div>
+
+</div>
