@@ -29,15 +29,14 @@
           <td>{{ user.email }}</td>
           <td>{{ user.company.name }}</td>
           <td>
-            <button
-              class="btn posts-btn"
-              [routerLink]="['/posts', user.id]"
-            >
+            <div class="btn-group">
+            <button class="btn posts-btn" [routerLink]="['/posts', user.id]">
               პოსტები
             </button>
             <button routerLink="/todos/{{ user.id }}" class="todo-btn">
               დავალებების სია
             </button>
+            </div>
           </td>
         </tr>
       }

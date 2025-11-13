@@ -1,11 +1,21 @@
 <div class="sidebar" [class.open]="isOpen()">
-  <button class="close-btn" (click)="close()">✖</button>
 
-  <button routerLink="/users">მომხმარებლები</button>
-  <button routerLink="/posts">პოსტები</button>
+  <button class="close-btn" (click)="close()">X</button>
+
+  <button class="nav-btn" [routerLink]="'/users'" (click)="close()">
+    მომხმარებლები
+  </button>
+
+  <button class="nav-btn" [routerLink]="'/posts'" (click)="close()">
+    პოსტები
+  </button>
+
+  <button class="nav-btn" [routerLink]="'/promo'" (click)="close()">
+    აქციები
+  </button>
+
 </div>
 
 @if (isOpen()) {
   <div class="sidebar-backdrop" (click)="close()"></div>
 }
-
