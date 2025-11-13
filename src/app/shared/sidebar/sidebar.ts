@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,9 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.scss']
 })
 export class SidebarComponent {
-  isOpen = false;
+  isOpen = signal(false);
 
   toggleSidebar() {
-    this.isOpen = !this.isOpen;
+    this.isOpen.update(v => !v);
+  }
+
+  close() {
+    this.isOpen.set(false);
   }
 }
+

@@ -1,0 +1,27 @@
+.layout-container {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+}
+
+.app-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px 16px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .app-sidebar {
+    width: 0;    
+  }
+
+  .main-content {
+    padding: 24px 12px 32px;
+  }
+}

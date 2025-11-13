@@ -1,0 +1,36 @@
+<div class="page page--posts-table">
+  <h2>პოსტების სრული სია</h2>
+
+  <table class="posts-table">
+    <thead>
+      <tr>
+        <th>მომხმარებელი</th>
+        <th>პოსტის სათაური</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (post of posts; track post.id) {
+        <tr>
+          <td>{{ post.user.name }}</td>
+          <td>{{ post.title }}</td>
+          <td>
+            <button class="btn outline" (click)="open(post)">
+              დეტალურად
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+@if (selected) {
+  <div class="modal-backdrop" (click)="close()"></div>
+  <div class="modal">
+    <h2>{{ selected!.title }}</h2>
+    <p>{{ selected!.body }}</p>
+    <button class="btn primary" (click)="close()">დახურვა</button>
+  </div>
+}

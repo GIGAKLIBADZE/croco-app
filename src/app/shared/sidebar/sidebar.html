@@ -1,11 +1,11 @@
-<button class="menu-btn" (click)="toggleSidebar()">☰</button>
+<div class="sidebar" [class.open]="isOpen()">
+  <button class="close-btn" (click)="close()">✖</button>
 
-@if (isOpen) {
-  <div class="sidebar-backdrop" (click)="toggleSidebar()"></div>
+  <button routerLink="/users">მომხმარებლები</button>
+  <button routerLink="/posts">პოსტები</button>
+</div>
+
+@if (isOpen()) {
+  <div class="sidebar-backdrop" (click)="close()"></div>
 }
 
-<nav class="sidebar" [class.open]="isOpen">
-  <button class="close-btn" (click)="toggleSidebar()">x</button>
-  <button routerLink="/users" (click)="toggleSidebar()">მომხმარებლები</button>
-  <button routerLink="/posts" (click)="toggleSidebar()">პოსტები</button>
-</nav>
