@@ -1,0 +1,34 @@
+<h3>ლიდერბორდი</h3>
+
+<div class="filter-buttons">
+  @for (type of weekTypes; track type) {
+    <button
+      (click)="setFilter(type)"
+      [class.active]="activeFilter === type"
+    >
+      {{ type }}
+    </button>
+  }
+</div>
+
+<table class="leaderboard-table">
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>Login</th>
+      <th>Customer ID</th>
+      <th>Week</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (item of filteredData; track item.customerId) {
+      <tr>
+        <td>{{ item.place }}</td>
+        <td>{{ item.loginName }}</td>
+        <td>{{ item.customerId }}</td>
+        <td>{{ item.week }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

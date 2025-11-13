@@ -1,0 +1,38 @@
+<div class="wheel-page">
+  <h2>ბორბალი</h2>
+
+  <div class="wheel-container">
+    <div
+      class="wheel"
+      [style.transform]="'rotate(' + rotation + 'deg)'"
+    >
+      @for (s of sectors; let i = $index; track i) {
+        <div
+          class="label"
+          [style.transform]="'translate(-50%, -50%) rotate(' + getLabelAngle(i) + 'deg)'"
+        >
+          <span
+            [style.transform]="'translate(-50%, -155px) rotate(' + (-getLabelAngle(i)) + 'deg)'"
+          >
+            {{ s }}
+          </span>
+        </div>
+      }
+    </div>
+
+    <div class="arrow"></div>
+  </div>
+
+  <div class="controls">
+    <input
+      type="number"
+      min="1"
+      max="10"
+      [(ngModel)]="selectedNumber"
+      placeholder="1 - 10"
+    />
+    <button (click)="spin()">დაატრიალე</button>
+  </div>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>
