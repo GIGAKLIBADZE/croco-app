@@ -1,8 +1,12 @@
 .page {
-  width: 85%;
+  width: 50%;
   margin: 40px auto;
 
   @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
     width: 90%;
   }
 }
